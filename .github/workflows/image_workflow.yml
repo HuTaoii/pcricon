@@ -1,16 +1,12 @@
-# 作者: Levi
-# 功能: 生成图片订阅，只需上传图标即可自动生成json文件，需要搭配generate_image_json.py使用。
-
-
 name: Image Workflow
 
 on:
-#  push:
-#    paths:
-#      - 'icon/**' # 监视 icon 文件夹及其子文件夹下的内容
-#  pull_request:
-#    paths:
-#      - 'icon/**' # 监视 icon 文件夹及其子文件夹下的内容
+  push:
+    paths:
+      - 'icon/**' # 图标存放位置，自动监测更新
+  pull_request:
+    paths:
+      - 'icon/**' # 图标存放位置，自动监测更新
   workflow_dispatch:
 
 jobs:
@@ -34,8 +30,6 @@ jobs:
     - name: Generate JSON
       run: |
         python .github/scripts/generate_image_json.py
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
@@ -45,10 +39,10 @@ jobs:
 
     - name: Push to pcricon Repository
       run: |
-        git config user.name "${{ github.actor }}"
-        git config user.email "${{ github.actor }}@users.noreply.github.com"
+        git config user.name "HuTaoii"
+        git config user.email "$@users.noreply.github.com"
         git add .
-        git commit -m "Add generated JSON file"
+        git commit -m "自动更新图标仓库"
         git push origin HEAD:main
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: $
