@@ -3,6 +3,10 @@
   "description": "收集一些自己常用的图标",
   "icons": [
     {
+      "name": "plxy.png",
+      "url": "https://raw.githubusercontent.com/HuTaoii/pcricon/main/icon/plxy.png"
+    },
+    {
       "name": "peco.PNG",
       "url": "https://raw.githubusercontent.com/HuTaoii/pcricon/main/icon/peco.PNG"
     },
